@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from streamlit_autorefresh import st_autorefresh
 
-BINANCE_URL = "https://api.binance.com/api/v3/klines"
+BINANCE_URL = "https://api.binance.us/api/v3/klines"
 
 def fetch_klines(symbol: str, interval: str, limit: int = 200) -> pd.DataFrame:
     """
