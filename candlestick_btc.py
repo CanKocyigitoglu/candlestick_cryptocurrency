@@ -9,10 +9,10 @@ from streamlit_autorefresh import st_autorefresh
 
 BINANCE_URL = "https://api.binance.us/api/v3/klines"
 
-def fetch_klines(symbol: str, interval: str, limit: int = 200) -> pd.DataFrame:
+def fetch_klines(symbol: str, interval: str, limit: int = 50) -> pd.DataFrame:
     """
     Fetch OHLCV candlesticks from Binance.
-    interval examples: 1m, 3m, 5m, 15m, 30m, 1h, 4h, 1d
+    interval examples: 5m, 15m, 30m, 1h, 4h, 8h, 12h, 1d
     """
     params = {"symbol": symbol, "interval": interval, "limit": limit}
     r = requests.get(BINANCE_URL, params=params, timeout=10)
@@ -45,16 +45,20 @@ st.title("🟠 BTC Candlestick — Live (Binance REST)")
 
 col1, col2, col3, col4 = st.columns([1.2, 1, 1, 1])
 with col1:
-    symbol = st.text_input("Symbol (Binance)", value="BTCUSDT").upper()
+    symbol = st.selectbox(
+        "Symbol (Binance)",
+        ["BTCUSDT", "ETHUSDT", "SOLUSDT"],
+        index=0
+    )
 with col2:
     interval = st.selectbox(
         "Candle Interval",
-        ["1m", "3m", "5m", "15m", "30m", "1h"],
+        ["5m", "15m", "30m", "1h", "4h", "8h", "12h", "1d"],
         index=0,
         help="Binance native intervals (e.g., 1m = 1 minute).",
     )
 with col3:
-    history = st.slider("Candles Shown", min_value=50, max_value=1000, value=200, step=50)
+    history = st.slider("Candles Shown", min_value=50, max_value=1000, value=50, step=50)
 with col4:
     # 5 seconds is a safe, conservative refresh to avoid rate limits.
     refresh_s = st.number_input("Refresh (sec)", min_value=5, max_value=60, value=5, step=1)
