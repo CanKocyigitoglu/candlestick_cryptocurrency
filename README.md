@@ -1,13 +1,11 @@
 ## 🟠 Live Binance Candlestick Viewer
 
 A real-time candlestick chart application for cryptocurrencies using the Binance REST API.
-Built with Streamlit, Plotly, and Pandas, this app visualizes live price data for BTC, ETH, SOL, and other pairs in an interactive dashboard.
+Built with Streamlit, Plotly, and Pandas, this app visualizes live price data for BTC, ETH, SOL in an interactive dashboard.
 
-🔗 Live Demo: https://btc-candlestick.streamlit.app/
+🔗 Live Demo: https://candlestickcryptocurrency.streamlit.app
 
-(Replace with your actual Streamlit Cloud link)
-
-📈 Features
+## 📈 Features
 
 📊 Live candlestick charts fetched directly from Binance
 
@@ -19,6 +17,8 @@ Built with Streamlit, Plotly, and Pandas, this app visualizes live price data fo
 
 ⚡ Responsive Streamlit interface powered by Plotly
 
-🧩 Installation
+## Author
 
-Clone the repository and install dependencies:
+Can Kocyigitoglu
+Developed with Python, Streamlit, and Plotly.
+Contributions and pull requests are welcome!
