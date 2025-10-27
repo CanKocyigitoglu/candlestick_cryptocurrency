@@ -20,5 +20,7 @@ Built with Streamlit, Plotly, and Pandas, this app visualizes live price data fo
 ## Author
 
 Can Kocyigitoglu
+
 Developed with Python, Streamlit, and Plotly.
+
 Contributions and pull requests are welcome!
